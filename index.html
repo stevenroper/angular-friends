@@ -17,7 +17,7 @@
 </head>
 
 <body ng-controller='FriendController'>
-  
+
   <h1>The <strong>facebook</strong> Friend Machine</h1>
   <div class="friends">
 
@@ -45,7 +45,7 @@
     </div>
   </form>
 
-    <ul>
+    <!-- <ul>
       <li class='friend'>
          <img class="profile-pic" src='https://scontent-a.xx.fbcdn.net/hprofile-ash3/833_10200838803828124_1233160321_a.jpg'>
         <h3>Cali Fornia</h3>
@@ -59,7 +59,25 @@
           Friends: 1,367
         </div>
       </li>
-    </ul>
+    </ul> -->
+    <div ng-repeat='friend in friends'>
+      <ul>
+        <li class='friend'>
+         <img class="profile-pic" src='{{friend.pic_square}}'>
+        <h3>{{friend.name}}</h3>
+        <div class="location">
+          Location: {{friend.current_location.city}}, {{friend.current_location.state}}, {{friend.current_location.country}}
+        </div>      
+        <div class="status">
+          Status: {{friend.status.message}}
+        </div>      
+        <div class="num-friends">
+          Friends: {{friend.friend_count}}
+        </div>
+        </li>
+      </ul>
+    </div>
+  
   </div>
 
 
