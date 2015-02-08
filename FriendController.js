@@ -1,6 +1,7 @@
  var app = angular.module('angularFriends');
 
 app.controller('FriendController', function($scope) {
+	$scope.searchTerm = '';
 	$scope.friends = [
     {
         "name": "Preston McNeil",
@@ -446,7 +447,6 @@ app.controller('FriendController', function($scope) {
         "friend_count": "855",
         "$$hashKey": "02U"
     }];
-    $scope.searchTerm = '';
 });
 
 

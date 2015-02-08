@@ -25,12 +25,12 @@
   <form class="form-inline searchForm" role="form">
     <div class="form-group">
 
-    <input class="form-control" placeholder="Search Anything About Your Friends" ng-model='searchTerm'>
+    <!-- <input class="form-control" placeholder="Search Anything About Your Friends" ng-model='searchTerm.name'> -->
     <!-- The stuff below is For step 5....get rid of the one above if you wish-->
-  <!--    
-      <input class="form-control" placeholder="Search Your Friends' Name" >
-      <input class="form-control" placeholder="Search Your Freinds' Location" > 
-   -->
+     
+      <input class="form-control" placeholder="Search Your Friends' Name" ng-model='searchTerm.name'>
+      <input class="form-control" placeholder="Search Your Freinds' Location" ng-model='searchTerm.current_location'> 
+  
       <select class="input-medium">
           <option>Name</option>
           <option># friends</option>
@@ -60,7 +60,7 @@
         </div>
       </li>
     </ul> -->
-    <div ng-repeat='friend in friends | filter: searchTerm'>
+    <div ng-repeat='friend in friends | filter: searchTerm:strict'>
       <ul>
         <li class='friend'>
          <img class="profile-pic" src='{{friend.pic_square}}'>
