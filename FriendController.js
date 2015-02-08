@@ -2,6 +2,8 @@
 
 app.controller('FriendController', function($scope) {
 	$scope.searchTerm = '';
+	$scope.sortBy = '';
+	$scope.inOrder = false;
 	$scope.friends = [
     {
         "name": "Preston McNeil",
