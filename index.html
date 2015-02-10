@@ -21,14 +21,14 @@
   <h1>The <strong>facebook</strong> Friend Machine</h1>
   <div class="friends">
 
-
-  <form class="form-inline searchForm" role="form">
+   <form class="form-inline searchForm" role="form">
     <div class="form-group">
 
     <!-- <input class="form-control" placeholder="Search Anything About Your Friends" ng-model='searchTerm.name'> -->
     <!-- The stuff below is For step 5....get rid of the one above if you wish-->
      
-      <input class="form-control" placeholder="Search Your Friends' Name" ng-model='searchTerm.name'>
+     <!-- Version 1 (Until Step 7) -->
+     <!--  <input class="form-control" placeholder="Search Your Friends' Name" ng-model='searchTerm.name'>
       <input class="form-control" placeholder="Search Your Freinds' Location" ng-model='searchTerm.current_location'> 
   
       <select class="input-medium" ng-model='sortBy'>
@@ -42,25 +42,21 @@
           <option value="true">Descending</option>
           <option value="false">Ascending</option>
       </select>
-    </div>
+    </div> -->
+
+    <!-- Version 2 - For Step 7 -->
+    <input class="form-control" placeholder="Search Your Friends' Name" ng-model='searchTerm.name'>
+    <input class="form-control" placeholder="Search Your Freinds' Location" ng-model='searchTerm.current_location'> 
+  
+     <select class="input-medium" ng-model='selected' ng-options='option.arrayItem as option.label for option in sortBy'></select>
+     <select class="input-medium" ng-model='defaultOrder' ng-options='order.bool as order.label for order in inOrder'></select>
+    </div> 
+
+
   </form>
 
-    <!-- <ul>
-      <li class='friend'>
-         <img class="profile-pic" src='https://scontent-a.xx.fbcdn.net/hprofile-ash3/833_10200838803828124_1233160321_a.jpg'>
-        <h3>Cali Fornia</h3>
-        <div class="location">
-          Location: New Port Beach, California, United States
-        </div>      
-        <div class="status">
-          Status: I hate the snow. I wish I was on the beach right now!!! <span class="hashtag">#ihateprovo</span>
-        </div>      
-        <div class="num-friends">
-          Friends: 1,367
-        </div>
-      </li>
-    </ul> -->
-    <div ng-repeat='friend in friends | filter: searchTerm:strict | orderBy:sortBy:inOrder'>
+
+    <div ng-repeat='friend in friends | filter: searchTerm:strict | orderBy:selected:defaultOrder'>
       <ul>
         <li class='friend'>
          <img class="profile-pic" src='{{friend.pic_square}}'>
@@ -77,13 +73,8 @@
         </li>
       </ul>
     </div>
-  
+
   </div>
-
-
-
-
-
 
 </body>
 </html>

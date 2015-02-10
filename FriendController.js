@@ -2,8 +2,20 @@
 
 app.controller('FriendController', function($scope) {
 	$scope.searchTerm = '';
-	$scope.sortBy;
-	$scope.inOrder;
+	$scope.sortBy = [
+        {label: 'Name', arrayItem: 'name'},
+        {label: '# of Friends', arrayItem: 'friend_count'},
+        {label: 'City', arrayItem: 'current_location.city'},
+        {label: 'State', arrayItem: 'current_location.state'},
+        {label: 'Country', arrayItem: 'current_location.country'}
+    ];
+
+    $scope.selected = $scope.sortBy[0].arrayItem;
+	$scope.inOrder = [
+        {label: 'Descending', bool: true},
+        {label: 'Ascending', bool: false}
+    ];
+    $scope.defaultOrder = $scope.inOrder[1].bool;
 	$scope.friends = [
     {
         "name": "Preston McNeil",
